@@ -1,0 +1,17 @@
+package br.com.fiap.view;
+
+import br.com.fiap.util.HttpCloudant;
+
+public class mainClass {
+	public static void main(String[] args) {
+		HttpCloudant http= new HttpCloudant();
+		http.setRequest("https://742f319e-2d45-4d5b-959a-be51c2d0228f-bluemix.cloudant.com/banco/_find");
+		http.setRequestmethod("POST");
+		http.setUsername("");
+		http.setPassword("");
+		http.setJson("{\"selector\": {\"_id\":\"1\"}, \"limit\":10}");
+		
+	
+	}
+
+}

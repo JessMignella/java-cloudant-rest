@@ -1,0 +1,45 @@
+package br.com.fiap.to;
+
+import java.io.Serializable;
+
+public class CapturaTO implements Serializable{
+	
+	private static final long serialVersionUID = 3536453855496110964L;
+	private String nome;
+	private String id;
+	private int status;
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
+	
+
+
+}

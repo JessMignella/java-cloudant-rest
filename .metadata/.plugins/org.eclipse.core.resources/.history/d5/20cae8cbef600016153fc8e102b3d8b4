@@ -1,0 +1,35 @@
+package br.com.fiap.view;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+
+import br.com.fiap.util.HttpCloudant;
+
+public class mainClass {
+	public static void main(String[] args) {
+		HttpCloudant http= new HttpCloudant();
+		http.setRequest("https://742f319e-2d45-4d5b-959a-be51c2d0228f-bluemix.cloudant.com/banco/_find");
+		http.setRequestmethod("POST");
+		http.setUsername("");
+		http.setPassword("");
+		http.setJson("{\"selector\": {\"_id\":\"1\"}, \"limit\":10}");
+		try{
+			HttpURLConnection client = http.getClient();
+			StringBuilder sb=  new StringBuilder();
+			int statuscodeHttp = client.getResponseCode();
+			if(statuscodeHttp == HttpURLConnection.HTTP_OK){
+				BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream(),"utf-8"));
+				String line = null;
+				while((line = br.readLine())!= null){
+					sb.append(line +"\n");
+				}
+				br.close();
+			}
+		}catch(Exception e){
+			
+		}
+	
+	}
+
+}

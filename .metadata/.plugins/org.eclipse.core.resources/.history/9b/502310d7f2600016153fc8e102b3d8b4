@@ -1,0 +1,57 @@
+ackage br.com.fiap.TO;
+
+import java.io.Serializable;
+
+public class CapturaTO implements Serializable{
+	 
+	/**
+	 * Class to interact with cloudant
+	 */
+	private static final long serialVersionUID = 1L;
+	private int temperatura,unidade,chuva;
+	private String _id, devCode, dispositivo;
+	
+	public int getTemperatura() {
+		return temperatura;
+	}
+	public void setTemperatura(int temperatura) {
+		this.temperatura = temperatura;
+	}
+	public int getUnidade() {
+		return unidade;
+	}
+	public void setUnidade(int unidade) {
+		this.unidade = unidade;
+	}
+	public int getChuva() {
+		return chuva;
+	}
+	public void setChuva(int chuva) {
+		this.chuva = chuva;
+	}
+	public String get_id() {
+		return _id;
+	}
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+	public String getDevCode() {
+		return devCode;
+	}
+	public void setDevCode(String devCode) {
+		this.devCode = devCode;
+	}
+	public String getDispositivo() {
+		return dispositivo;
+	}
+	public void setDispositivo(String dispositivo) {
+		this.dispositivo = dispositivo;
+	}
+	
+	@Override
+	public String toString(){
+		return get_id() + " " + " " + getChuva() + " " + getDevCode() + " " + getDispositivo() + " " + getTemperatura() + " " + getUnidade();
+		 
+	}
+	
+}
