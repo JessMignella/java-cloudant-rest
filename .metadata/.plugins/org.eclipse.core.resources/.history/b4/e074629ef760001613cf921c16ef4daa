@@ -1,0 +1,42 @@
+package br.com.fiap.view;
+
+import java.net.HttpURLConnection;
+
+import com.google.gson.Gson;
+
+import br.com.fiap.to.CapturaTO;
+import br.com.fiap.util.HttpCloudant;
+
+public class cloudantAdd {
+	public static void main(String[] args) {
+		HttpCloudant http = new HttpCloudant();
+		http.setRequest("https://742f319e-2d45-4d5b-959a-be51c2d0228f-bluemix.cloudant.com/banco/");
+		http.setRequestmethod("POST");
+		http.setUsername("therseradhellympoliferst");
+		http.setPassword("070da3ad42379cc01932dbc07c8be101fc6d2eee");
+		
+		HttpURLConnection client;
+		try{
+			CapturaTO cap = new CapturaTO();
+			cap.setDispositivo("meu dispositivo");
+			cap.setDevCode("1");
+			cap.setTemperatura(55);
+			cap.setUnidade(55);
+			cap.setChuva(55);
+			
+			client = http.getClient();
+			Gson gson = new Gson();
+			String json = gson.toJson(cap.toString());
+			http.setJson(json);
+			
+			int statuscode = client.getResponseCode();
+			if(statuscode == HttpURLConnection.HTTP_CREATED){
+				System.out.println("Cadastrado!"+ statuscode + client.getResponseCode());
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+
+}
